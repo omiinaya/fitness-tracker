@@ -51,10 +51,22 @@ function handleWorkoutTypeChange(event) {
 
 function validateInputs() {
   let isValid = true;
+  let errorMsg = '';
 
   if (workoutType === "resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
+      errorMsg = 'Exercise name is required.';
+      nameInput.setAttribute('aria-invalid', 'true');
+      nameInput.setAttribute('aria-describedby', 'name-error');
+      if (!document.getElementById('name-error')) {
+        nameInput.insertAdjacentHTML('afterend', '<span id="name-error" class="error" role="alert">Exercise name is required.</span>');
+      }
+    } else {
+      nameInput.removeAttribute('aria-invalid');
+      nameInput.removeAttribute('aria-describedby');
+      const err = document.getElementById('name-error');
+      if (err) err.remove();
     }
 
     if (weightInput.value.trim() === "") {

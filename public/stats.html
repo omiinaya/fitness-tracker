@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="View your workout statistics and progress charts." />
+    <meta name="keywords" content="fitness, tracker, workout, stats, dashboard, health" />
+    <meta name="author" content="Omar Minaya" />
+    <title>Fitness Tracker Dashboard</title>
+    <link rel="canonical" href="https://evening-chamber-94304.herokuapp.com/stats" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2185d0" />
+    <meta property="og:title" content="Fitness Tracker Dashboard" />
+    <meta property="og:description" content="View your workout statistics and progress charts." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://evening-chamber-94304.herokuapp.com/stats" />
+    <meta property="og:image" content="/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fitness Tracker Dashboard" />
+    <meta name="twitter:description" content="View your workout statistics and progress charts." />
+    <meta name="twitter:image" content="/assets/og-image.png" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -11,31 +28,89 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <title>Fitness Chart</title>
+    <style>
+      .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        border: 0 !important;
+      }
+      .focusable:active,
+      .focusable:focus {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        outline: 2px solid #2185d0;
+        background: #fff;
+        color: #2185d0;
+        z-index: 1000;
+      }
+      html {
+        font-size: 100%;
+      }
+      body {
+        color: #222;
+        background: #fff;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #fff;
+          background: #121212;
+        }
+      }
+    </style>
   </head>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-  </nav>
   <body>
-    <div class="container mt">
-      <h1 class="text-center">Workout Dashboard</h1>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas"></canvas>
+    <a href="#main-content" class="visually-hidden focusable skip-link"
+      >Skip to main content</a
+    >
+    <nav aria-label="Main navigation">
+      <a href="/" aria-label="Home">Fitness Tracker</a>
+    </nav>
+    <main id="main-content" tabindex="-1">
+      <div class="container mt">
+        <h1 class="text-center">Workout Dashboard</h1>
+        <div class="row mt">
+          <div class="col-md-6">
+            <canvas
+              id="canvas"
+              aria-label="Workout Chart 1"
+              role="img"
+            ></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas
+              id="canvas2"
+              aria-label="Workout Chart 2"
+              role="img"
+            ></canvas>
+          </div>
         </div>
-        <div class="col-md-6">
-          <canvas id="canvas2"></canvas>
+        <div class="row mt">
+          <div class="col-md-6">
+            <canvas
+              id="canvas3"
+              aria-label="Workout Chart 3"
+              role="img"
+            ></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas
+              id="canvas4"
+              aria-label="Workout Chart 4"
+              role="img"
+            ></canvas>
+          </div>
         </div>
       </div>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas3"></canvas>
-        </div>
-        <div class="col-md-6">
-          <canvas id="canvas4"></canvas>
-        </div>
-      </div>
-    </div>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/api.js"></script>
     <script src="/stats.js"></script>

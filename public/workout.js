@@ -46,6 +46,9 @@ function formatDate(date) {
 
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
+  container.setAttribute('role', 'region');
+  container.setAttribute('aria-live', 'polite');
+  container.innerHTML = '';
 
   const workoutKeyMap = {
     date: "Date",
@@ -73,12 +76,9 @@ function renderWorkoutSummary(summary) {
 
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
-  const p = document.createElement("p");
-  const strong = document.createElement("strong");
-  strong.textContent = "You have not created a workout yet!"
-
-  p.appendChild(strong);
-  container.appendChild(p);
+  container.setAttribute('role', 'region');
+  container.setAttribute('aria-live', 'polite');
+  container.innerHTML = '<p>No workout found. Start a new workout to begin tracking your progress.</p>';
 }
 
 initWorkout();

@@ -1,0 +1,33 @@
+# Copilot Instructions: Fitness Tracker
+
+## Architecture
+- Use modular, maintainable code (separate routes, models, controllers)
+- Use environment variables for config and secrets
+- Use async/await for all async code
+- Use Mongoose for MongoDB models and validation
+
+## Cross-Domain
+- Ensure CORS is configured via environment variable
+- API must validate and sanitize all input
+- No secrets or credentials in code or logs
+
+## Innovation
+- Prioritize accessibility (ARIA, skip links, color contrast)
+- Optimize for Lighthouse (performance, SEO, best practices)
+- Use semantic HTML and meta tags
+- Add tests for all new features
+
+## Documentation
+- Update README, SECURITY.md, DEPLOYMENT.md, DATABASE_SETUP.md for all major changes
+- Document all API endpoints and environment variables
+- Add code comments for complex logic
+
+## General
+- Use Helmet, compression, and CORS middleware
+- Use graceful shutdown and health check endpoint
+- Keep dependencies up to date
+- Use .gitignore to exclude node_modules, .env, logs, build, and sensitive files
+- Write clear, descriptive commit messages
+
+---
+For more, see the main README.md and docs.

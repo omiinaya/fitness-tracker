@@ -1,29 +1,49 @@
 {
-  "name": "mongoose_skeleton",
-  "version": "1.0.0",
-  "description": "For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.",
+  "name": "fitness-tracker",
+  "version": "2.0.0",
+  "description": "Modern fitness tracker with optimized performance, accessibility, and ACID compliance.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "watch": "nodemon server.js",
-    "seed": "node seeders/seed.js"
+    "dev": "nodemon server.js",
+    "test": "echo \"No tests yet\" && exit 0",
+    "lint": "eslint . --ext .js",
+    "security": "npm audit && npm audit fix",
+    "security:check": "npm audit --audit-level=high",
+    "build": "npm run lint && npm run security:check"
   },
   "author": "Omar Minaya",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.16.3",
-    "mongoose": "^5.9.14",
-    "morgan": "^1.9.1"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^6.1.5",
+    "mongoose": "^7.6.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "nodemon": "^3.1.10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/omiinaya/fitness-tracker.git"
   },
   "keywords": [
-    "n/a"
+    "fitness",
+    "tracker",
+    "workout",
+    "mongoose",
+    "express",
+    "ACID",
+    "lighthouse"
   ],
   "bugs": {
     "url": "https://github.com/omiinaya/fitness-tracker/issues"

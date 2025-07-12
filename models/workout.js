@@ -12,28 +12,34 @@ const workout_db = new Schema(
           type: {
             type: String,
             trim: true,
-            required: "Enter a type"
+            required: [true, "Enter a type"],
+            enum: ['resistance', 'cardio']
           },
           name: {
             type: String,
             trim: true,
-            required: "Enter a name"
+            required: [true, "Enter a name"]
           },
           duration: {
             type: Number,
-            required: "Enter a duration"
+            required: [true, "Enter a duration"],
+            min: [1, "Duration must be at least 1 minute"]
           },
           weight: {
-            type: Number
+            type: Number,
+            min: [0, "Weight must be positive"]
           },
           reps: {
-            type: Number
+            type: Number,
+            min: [0, "Reps must be positive"]
           },
           sets: {
-            type: Number
+            type: Number,
+            min: [0, "Sets must be positive"]
           },
           distance: {
-            type: Number
+            type: Number,
+            min: [0, "Distance must be positive"]
           }
         }
       ]
@@ -45,9 +51,10 @@ const workout_db = new Schema(
     }
   );
 
+  // Virtual for total duration
   workout_db.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {
-      return total + exercise.duration;
+      return total + (exercise.duration || 0);
     }, 0);
   });
   
