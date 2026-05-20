@@ -10,12 +10,12 @@ async function initWorkout() {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,
       numExercises: lastWorkout.exercises.length,
-      ...tallyExercises(lastWorkout.exercises)
+      ...tallyExercises(lastWorkout.exercises),
     };
 
     renderWorkoutSummary(workoutSummary);
   } else {
-    renderNoWorkoutText()
+    renderNoWorkoutText();
   }
 }
 
@@ -38,7 +38,7 @@ function formatDate(date) {
     weekday: "long",
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   };
 
   return new Date(date).toLocaleDateString(options);
@@ -46,9 +46,9 @@ function formatDate(date) {
 
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
-  container.setAttribute('role', 'region');
-  container.setAttribute('aria-live', 'polite');
-  container.innerHTML = '';
+  container.setAttribute("role", "region");
+  container.setAttribute("aria-live", "polite");
+  container.innerHTML = "";
 
   const workoutKeyMap = {
     date: "Date",
@@ -57,10 +57,10 @@ function renderWorkoutSummary(summary) {
     totalWeight: "Total Weight Lifted",
     totalSets: "Total Sets Performed",
     totalReps: "Total Reps Performed",
-    totalDistance: "Total Distance Covered"
+    totalDistance: "Total Distance Covered",
   };
 
-  Object.keys(summary).forEach(key => {
+  Object.keys(summary).forEach((key) => {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
 
@@ -76,9 +76,10 @@ function renderWorkoutSummary(summary) {
 
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
-  container.setAttribute('role', 'region');
-  container.setAttribute('aria-live', 'polite');
-  container.innerHTML = '<p>No workout found. Start a new workout to begin tracking your progress.</p>';
+  container.setAttribute("role", "region");
+  container.setAttribute("aria-live", "polite");
+  container.innerHTML =
+    "<p>No workout found. Start a new workout to begin tracking your progress.</p>";
 }
 
 initWorkout();

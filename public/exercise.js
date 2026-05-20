@@ -12,7 +12,7 @@ const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
-const newWorkout = document.querySelector(".new-workout")
+const newWorkout = document.querySelector(".new-workout");
 
 let workoutType = null;
 let shouldNavigateAway = false;
@@ -21,13 +21,12 @@ async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
-    workout = await API.createWorkout()
-    console.log(workout)
+    workout = await API.createWorkout();
+    console.log(workout);
   }
   if (workout) {
     location.search = "?id=" + workout._id;
   }
-
 }
 
 initExercise();
@@ -51,21 +50,24 @@ function handleWorkoutTypeChange(event) {
 
 function validateInputs() {
   let isValid = true;
-  let errorMsg = '';
+  let errorMsg = "";
 
   if (workoutType === "resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
-      errorMsg = 'Exercise name is required.';
-      nameInput.setAttribute('aria-invalid', 'true');
-      nameInput.setAttribute('aria-describedby', 'name-error');
-      if (!document.getElementById('name-error')) {
-        nameInput.insertAdjacentHTML('afterend', '<span id="name-error" class="error" role="alert">Exercise name is required.</span>');
+      errorMsg = "Exercise name is required.";
+      nameInput.setAttribute("aria-invalid", "true");
+      nameInput.setAttribute("aria-describedby", "name-error");
+      if (!document.getElementById("name-error")) {
+        nameInput.insertAdjacentHTML(
+          "afterend",
+          '<span id="name-error" class="error" role="alert">Exercise name is required.</span>',
+        );
       }
     } else {
-      nameInput.removeAttribute('aria-invalid');
-      nameInput.removeAttribute('aria-describedby');
-      const err = document.getElementById('name-error');
+      nameInput.removeAttribute("aria-invalid");
+      nameInput.removeAttribute("aria-describedby");
+      const err = document.getElementById("name-error");
       if (err) err.remove();
     }
 
@@ -165,4 +167,4 @@ toast.addEventListener("animationend", handleToastAnimationEnd);
 
 document
   .querySelectorAll("input")
-  .forEach(element => element.addEventListener("input", validateInputs));
+  .forEach((element) => element.addEventListener("input", validateInputs));
