@@ -149,11 +149,10 @@ form::after {
 
 button {
   display: block;
-  border: none;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #aaa;
+  border-radius: 6px;
   padding: 10px;
   background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
@@ -212,11 +211,10 @@ form::after {
 
 button {
   display: block;
-  border: none;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #aaa;
+  border-radius: 6px;
   padding: 10px;
   background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
@@ -273,11 +271,10 @@ form::after {
 
 button {
   display: block;
-  border: none;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #aaa;
+  border-radius: 6px;
   padding: 10px;
   background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
